@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "2bc7df85-4e4a-4c17-87d7-c7069f2ba106"
+      }
+    },
+    "android": {
+      "package": "com.lucasmoreirapacheco.checklist"
+    }
+  }
+}

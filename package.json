@@ -1,0 +1,21 @@
+{
+  "name": "checklist",
+  "version": "1.0.0",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "^54.0.10",
+    "expo-clipboard": "~8.0.7",
+    "react": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-safe-area-context": "^5.6.1"
+  }
+}
