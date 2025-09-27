@@ -23,17 +23,15 @@ export default function HomeScreen({ onOpenList, onOpenJsonViewer }) {
             setData(parsed);
           }
         } else {
-          // initialize
           setData({ lists: [{ name: 'Lista 1', items: [] }], activeIndex: 0 });
         }
       } catch (e) {
-        console.warn(e);
       }
     })();
   }, []);
 
   useEffect(() => {
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data)).catch(e => console.warn(e));
+    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data)).catch(e => {});
   }, [data]);
 
   function selectList(i) {

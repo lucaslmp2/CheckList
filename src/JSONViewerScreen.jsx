@@ -5,7 +5,7 @@ import * as Clipboard from 'expo-clipboard';
 
 export default function JSONViewerScreen({ onBack }) {
   const [importedData, setImportedData] = useState(null);
-  const [selectedListIndex, setSelectedListIndex] = useState(0); // To keep track of the active list
+  const [selectedListIndex, setSelectedListIndex] = useState(0);
 
   async function importFromClipboard() {
     try {
@@ -18,7 +18,6 @@ export default function JSONViewerScreen({ onBack }) {
       try {
         const parsed = JSON.parse(text);
 
-        // Validate the new JSON structure
         if (
           parsed &&
           Array.isArray(parsed.lists) &&

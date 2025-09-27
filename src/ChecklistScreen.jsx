@@ -36,14 +36,11 @@ export default function ChecklistScreen({ onBack } = {}) {
         const json = await AsyncStorage.getItem(STORAGE_KEY);
         if (json) {
           const parsed = JSON.parse(json);
-          // migration: older format was an array of items OR had days arrays
           if (Array.isArray(parsed)) {
-            // create a list for today
             const items = parsed.map(it => ({ name: it.name, checked: !!(it.checked), qty: it.qty || 1 }));
             setData({ lists: [{ name: 'Lista 1', date: todayISO(), items }], activeIndex: 0 });
           } else if (parsed && parsed.lists) {
-            // if items had days[], map to checked based on today's weekday
-            const todayIdx = new Date().getDay(); // 0..6 (Sun..Sat)
+            const todayIdx = new Date().getDay();
             const lists = parsed.lists.map(l => ({
               name: l.name,
               date: l.date || todayISO(),
@@ -54,7 +51,6 @@ export default function ChecklistScreen({ onBack } = {}) {
                 return { name: it.name, checked: !!it.checked, qty: it.qty || 1 };
               })
             }));
-            // If parsed.lists is empty, populate with default items to avoid an empty UI
             if (!lists || lists.length === 0) {
               setData(makeInitialData());
             } else {
@@ -63,7 +59,6 @@ export default function ChecklistScreen({ onBack } = {}) {
           }
         }
       } catch (e) {
-        console.warn('Erro ao carregar estado:', e);
       } finally {
         setLoaded(true);
       }
@@ -72,7 +67,7 @@ export default function ChecklistScreen({ onBack } = {}) {
 
   useEffect(() => {
     if (!loaded) return;
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data)).catch(e => console.warn(e));
+    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(data)).catch(() => {});
   }, [data, loaded]);
 
   const lists = data.lists || [];
