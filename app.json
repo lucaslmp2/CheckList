@@ -1,12 +1,21 @@
 {
   "expo": {
+    "name": "ToDoMix",
+    "slug": "todomix",
+    "version": "1.0.0",
+    "icon": "./assets/icon.png",
     "extra": {
       "eas": {
         "projectId": "2bc7df85-4e4a-4c17-87d7-c7069f2ba106"
       }
     },
     "android": {
-      "package": "com.lucasmoreirapacheco.checklist"
+      "package": "com.todomix"
+    },
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     }
   }
 }
