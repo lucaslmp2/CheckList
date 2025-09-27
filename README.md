@@ -29,7 +29,7 @@ Um aplicativo de checklist semanal simples, construído com React Native e Expo.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone <URL_DO_REPOSITORIO>
+    git clone https://github.com/lucaslmp2/CheckList/tree/main
     cd CheckList
     ```
 
